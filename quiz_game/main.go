@@ -37,7 +37,7 @@ func main() {
 		fmt.Printf("%d# %s=", key+1, value.question)
 		var answer string
 		fmt.Scanf("%s", &answer)
-		if answer == strings.TrimSpace(value.answer) {
+		if answer == value.answer {
 			correctCount++
 		}
 	}
@@ -50,7 +50,7 @@ func parseLines(csvRecords [][]string) []problems {
 
 	for i, row := range csvRecords {
 		problemList[i].question = row[0]
-		problemList[i].answer = row[1]
+		problemList[i].answer = strings.TrimSpace(row[1])
 	}
 
 	return problemList
